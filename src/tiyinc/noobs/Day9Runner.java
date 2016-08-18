@@ -21,14 +21,21 @@ public class Day9Runner {
             Scanner fileScanner = new Scanner(testFile);
             int numLines = 0;
             int numChars = 0;
-            while (fileScanner.hasNext()){
+            int numInts = 0;
+            while (fileScanner.hasNext()) {
                 String currentLine = fileScanner.nextLine();
-                numLines ++;
-                numChars ++;
+                numLines++;
+                numChars += currentLine.length();
+                int intIndex = currentLine.indexOf("int");
+                if (intIndex != -1) {
+                    numInts++;
+                }
                 System.out.println(currentLine);
-                //System.out.println("You have " + numLines + "lines in your code" );
-                //System.out.println("You have " + numChars + "chars in your code");
             }
+            System.out.println("Boom! You have " + numLines + " lines in your file!");
+            System.out.println("Boom! You have " + numChars + " characters in your file!");
+            System.out.println("Boom! You have " + numInts + " references to \"int\" in your file!");
+
         }catch (Exception exception) {
             exception.printStackTrace();
         }
